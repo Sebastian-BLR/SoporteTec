@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SolicitudeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home'); 
+
+
+Route::get( '/contacto',[SolicitudeController::class, 'index'])->name('contacto');
+Route::post('/contacto',[SolicitudeController::class, 'store']);
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/dashboard', function () {
+    return view('auth.dashboard');
 }); 
