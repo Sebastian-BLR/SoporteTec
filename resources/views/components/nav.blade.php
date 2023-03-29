@@ -9,25 +9,32 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       @guest
-        <ul class="navbar-nav">
-
+      <ul class="navbar-nav">
+        
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Inicio</a>
+            <a class="nav-link {{ $inicioActive ?? ''  }}" aria-current="page" href="{{ route('home') }}">Inicio</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('contacto') }}">Contacto</a>
+            <a class="nav-link {{ $contactoActive ?? ''  }}" href="{{ route('contacto') }}">Contacto</a>
           </li>
 
         </ul>
-      @endguest
 
       <div class=" ms-md-auto me-md-3 navbar-nav">
         <div class="nav-item">
-          <a class="nav-link" aria-current="page" href="/login">Login</a>
+          <a class="nav-link {{ $loginActive ?? ''  }}" aria-current="page" href="{{ route('login') }}">Login</a>
         </div>
       </div>
+      @endguest
 
+      @auth
+      <div class=" ms-md-auto me-md-3 navbar-nav">
+        <div class="nav-item">
+          <a class="nav-link {{ $logout ?? ''  }}" aria-current="page" href="#">Logout</a>
+        </div>
+      </div>
+      @endauth
     </div>
   </div>
 </nav>

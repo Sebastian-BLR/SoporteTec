@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\SolicitudeController;
+use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,18 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    $inicioActive = 'active';
+    return view('welcome', ['inicioActive' => $inicioActive]);
 })->name('home'); 
 
 
-Route::get( '/contacto',[SolicitudeController::class, 'index'])->name('contacto');
-Route::post('/contacto',[SolicitudeController::class, 'store']);
+Route::get( '/contacto',[ContactoController::class, 'index'])->name('contacto');
+Route::post('/contacto',[ContactoController::class, 'store']);
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
 
-Route::get('/dashboard', function () {
-    return view('auth.dashboard');
-}); 
+Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
+
+Route::get('/mensaje-exito', function () {
+    return view('mensaje_exito');
+})->name('mensaje_exito');
+
+
