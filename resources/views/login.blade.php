@@ -45,7 +45,7 @@
 
               <div class="checkbox mb-3">
                 <label>
-                  <input type="checkbox" value="remember-me"> Recordarme
+                  <input type="checkbox" name="remember"> Recordarme
                 </label>
               </div>
 

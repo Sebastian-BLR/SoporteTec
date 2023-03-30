@@ -9,11 +9,22 @@ class Solicitud extends Model
 {
     use HasFactory;
     protected $table = 'solicitudes';
+    
+    protected $casts = [
+        'fecha' => 'datetime',
+    ];
+    
     protected $fillable = [
         'nombre',
         'email',
         'problema_id',
         'descripcion',
-        'fecha'
+        'fecha',
+        'direccion',
+        'estatus_id',
     ];
+
+    public function estatus(){
+       return $this -> belongsTo(Estatu::class);
+    }
 }

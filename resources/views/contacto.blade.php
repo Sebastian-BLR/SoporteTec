@@ -47,6 +47,18 @@
               </div>
 
               <div class="mb-3">
+                <label class="form-label" for="direccion">Direccion:</label>
+                <textarea id="direccion" rows="3" name="direccion" placeholder="Escribe tu direccion"
+                  class="form-control @error('direccion') is-invalid @enderror" aria-describedby="errorDireccion">{{ old('direccion') }}</textarea>
+
+                <div id='errorDireccion' class="invalid-feedback alert alert-danger p-1" role="alert">
+                  @error('direccion')
+                    {{ $message }}
+                  @enderror
+                </div>
+              </div>
+
+              <div class="mb-3">
                 <label class="form-label" for="problema">Problema:</label>
                 <select id="problema" name="problema_id" class="form-control @error('problema_id') is-invalid @enderror"
                   aria-describedby="errorProblema_id" ">

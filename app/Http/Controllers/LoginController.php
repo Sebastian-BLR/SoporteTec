@@ -14,12 +14,13 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
+        $remember = $request -> remember;
         $data = $this -> validate($request,[
             'user'     => 'required',
             'password' => 'required',
         ]);
 
-        $auth = auth() -> attempt($data);
+        $auth = auth() -> attempt($data, $remember);
         if(!$auth){
             return back()->with('mensaje', 'Credenciales incorrectas');
         }

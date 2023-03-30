@@ -8,51 +8,43 @@
 
 
 @section('contenido')
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card shadow-lg p-3 mb-5 bg-white">
-          <div class="card-header bg-info h2 text-center">Solicitudes</div>
-          <div class="card-body">
+  <div class="container bg-light shadow p-3">
+    <h1 class="text-center bg-info">Solicitudes</h1>
 
-            <div class="row justify-content-around mb-4">
-              <a type="button" class="col-sm-5 btn">
-                <div class="card  p-3 mb-2 shadow-sm" style="background-color: #eee">
-                  <div class="card-header bg-info text-center h3">Hoy</div>
-                  <div class="card-body h1 text-center">
-                    5
-                  </div>
-                </div>
-              </a>
+    <div class="d-none d-lg-flex">
 
-
-
-              <a type="button" class="col-sm-5 btn ">
-                <div class="card p-3 mb-2 shadow-sm" style="background-color: #eee">
-                  <div class="card-header bg-info text-center h3 ">Mañana</div>
-                  <div class="card-body h1 text-center">
-                    6
-                  </div>
-                </div>
-              </a>
-
-            </div>
-
-            <div class="row justify-content-around">
-
-              <div class="col-sm-5 mb-4 mb-mb-0">
-                <button class="btn btn-danger btn-lg w-100 p-4">Pendientes</button>
-              </div>
-            
-              <div class="col-sm-5">
-                <button class="btn btn-success btn-lg w-100 p-4">Completadas</button>
-              </div>
-            
-            </div>
-
-          </div>
-        </div>
+      <div class="col-8 col-lg-4">
+        <p class="mb-0 text-center ">Datos</p>
       </div>
+
+      <p class="col-4 col-lg-1 text-center">Estatus</p>
+
+      <div class="d-grid d-md-flex col-lg-6 align-items-center  justify-content-md-center gap-2 gap-md-5 my-4 my-lg-0">
+        <p class="text-center">Acciones</p>
+      </div>
+
     </div>
+    @foreach ($solicitudes as $solicitud)
+      <div class="row border-bottom border-top">
+
+        <div class="col-8 col-lg-4">
+          <p class="mb-0 ps-2">Folio: {{ $solicitud->id }}</p>
+          <p class="mb-0 ps-2">Nombre: {{ $solicitud->nombre }}</p>
+          <p class="mb-0 ps-2">Fecha: {{ $solicitud->fecha->format('d/m/Y') }}</p>
+        </div>
+
+        <p class="col-4 col-lg-1 text-center py-md-4">{{ $solicitud -> estatus -> estatu }}</p>
+
+        <div class="d-grid d-md-flex col-lg-6 align-items-center  justify-content-md-center gap-2 gap-md-5 my-4 my-lg-0">
+          <button type="button" class="btn btn-sm btn-success col-md-4">Cambiar estado</button>
+          <button type="button" class="btn btn-sm btn-primary col-md-2">Editar</button>
+          <button type="button" class="btn btn-sm btn-danger  col-md-3">Eliminar</button>
+        </div>
+
+      </div>
+    @endforeach
+  </div>
+  <div class="mt-5 container">
+      {{ $solicitudes->links() }}
   </div>
 @endsection
