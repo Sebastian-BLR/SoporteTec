@@ -17,26 +17,31 @@ class estatusSeeder extends Seeder
         $data = [
             [
                 'estatu' => 'Solicitado',
+                'color' => 'secondary',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'estatu' => 'En espera',
+                'color' => 'warning',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'estatu' => 'En proceso',
+                'color' => 'primary',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'estatu' => 'Completado',
+                'color' => 'success',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'estatu' => 'Rechazado',
+                'color' => 'danger',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]

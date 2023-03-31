@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('solicitudes', function (Blueprint $table) {
-            $table->foreignId('estatus_id')->references('id')->on('estatus');
+            $table->foreignId('estatus_id')->references('id')->on('estatus')-> constrained()->onDelete('cascade');
             $table->string('direccion');
         });
     }

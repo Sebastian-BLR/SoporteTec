@@ -32,19 +32,34 @@
 
               </div>
 
-
-              <div class="mb-3">
-                <label class="form-label" for="email">Email:</label>
-                <input type="email" id="email" name='email' placeholder="Escribe tu correo electrónico"
-                  class="form-control @error('email') is-invalid @enderror" aria-describedby="errorEmail"
-                  value="{{ old('email') }}">
-
-                <div id='errorEmail' class="invalid-feedback alert alert-danger p-1" role="alert">
-                  @error('email')
-                    {{ $message }}
-                  @enderror
+<div class="row">
+  
+                <div class="mb-3 col-md-8">
+                  <label class="form-label" for="email">Email:</label>
+                  <input type="email" id="email" name='email' placeholder="Escribe tu correo electrónico"
+                    class="form-control @error('email') is-invalid @enderror" aria-describedby="errorEmail"
+                    value="{{ old('email') }}">
+  
+                  <div id='errorEmail' class="invalid-feedback alert alert-danger p-1" role="alert">
+                    @error('email')
+                      {{ $message }}
+                    @enderror
+                  </div>
                 </div>
-              </div>
+  
+                <div class="mb-3 col-md-4">
+                  <label class="form-label" for="fecha-visita">Fecha de la visita:</label>
+                  <input type="date" id="fecha-visita" name="fecha" min={{ $fechaMin}}
+                    class="form-control @error('fecha') is-invalid @enderror" aria-describedby="errorFecha"
+                    value="{{ old('fecha') }}">
+  
+                  <div id='errorFecha' class="invalid-feedback alert alert-danger p-1" role="alert">
+                    @error('fecha')
+                      {{ str_replace('fecha', 'fecha de la visita', $message) }}
+                    @enderror
+                  </div>
+                </div>
+</div>
 
               <div class="mb-3">
                 <label class="form-label" for="direccion">Direccion:</label>
@@ -89,18 +104,7 @@
                 </div>
               </div>
 
-              <div class="mb-3">
-                <label class="form-label" for="fecha-visita">Fecha de la visita:</label>
-                <input type="date" id="fecha-visita" name="fecha" min={{ $fechaMin}}
-                  class="form-control @error('fecha') is-invalid @enderror" aria-describedby="errorFecha"
-                  value="{{ old('fecha') }}">
-
-                <div id='errorFecha' class="invalid-feedback alert alert-danger p-1" role="alert">
-                  @error('fecha')
-                    {{ str_replace('fecha', 'fecha de la visita', $message) }}
-                  @enderror
-                </div>
-              </div>
+            
 
               <div class="d-grid d-md-block">
                 <button type="submit" class="btn btn-primary">Enviar Solucitud</button>

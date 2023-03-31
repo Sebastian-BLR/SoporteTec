@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('email');
-            $table->foreignId('problema_id')->references('id')->on('problematec');
+            $table->foreignId('problema_id')->references('id')->on('problematec')-> constrained()->onDelete('cascade');
             $table->string('descripcion');
             $table->date('fecha');
             $table->timestamps();

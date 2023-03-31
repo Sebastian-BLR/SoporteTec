@@ -24,7 +24,13 @@ class Solicitud extends Model
         'estatus_id',
     ];
 
-    public function estatus(){
+    public function estatus()
+    {
        return $this -> belongsTo(Estatu::class);
+    }
+
+    public function problema()
+    {
+        return $this -> belongsTo(ProblemaTec::class);
     }
 }

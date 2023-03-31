@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SolicitudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,10 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout.store');
+
+Route::get('/dashboard/solicitud/{solicitud}', [SolicitudController::class, 'index'])->name('solicitud.index');
+Route::delete('/dashboard/solicitud/delete/{solicitud}', [SolicitudController::class, 'delete'])->name('solicitud.delete');
+Route::put('/dashboard/solicitud/update/{solicitud}', [SolicitudController::class, 'update'])->name('solicitud.update');
 
 
 Route::get('/mensaje-exito', function () {
